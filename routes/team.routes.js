@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
     const savedTeam = await createNewTeam(req.body);
     res
       .status(201)
-      .json({ message: "Team added successfully", team: savedTeam });
+      .json({ message: "Team Added Successfully.", team: savedTeam });
   } catch (error) {
     res.status(500).json({ error: "Failed to add team." });
   }
