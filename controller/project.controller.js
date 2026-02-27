@@ -21,4 +21,14 @@ async function getAllProjects() {
   }
 }
 
-module.exports = { createProject, getAllProjects };
+
+async function deleteProject(projectId) {
+  try {
+    const deletedProject = await Project.findByIdAndDelete(projectId);
+    return deletedProject;
+  } catch (error) {
+    throw error
+  }
+}
+
+module.exports = { createProject, getAllProjects, deleteProject };
