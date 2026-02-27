@@ -30,6 +30,10 @@ app.use("/tasks", taskRoutes);
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
+// User Routes
+const userRoutes = require("./routes/user.routes")
+app.use("/users", userRoutes)
+
 
 
 const PORT = process.env.PORT || 5000;

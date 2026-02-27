@@ -15,12 +15,12 @@ const taskSchema = new mongoose.Schema(
     team: { type: mongoose.Schema.Types.ObjectId, ref: "Team", required: true }, // Refers to Team model
 
     owners: [
-      { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true }, // Refers to User model (owners)
+      { type: mongoose.Schema.Types.ObjectId, ref: "UserDB", required: true }, // Refers to User model (owners)
     ],
 
     tags: [{ type: String }], // Array of tags
 
-    timeToComplete: { type: Number, required: true }, // Number of days to complete the task
+    dueDate: { type: Date, required: true }, // Number of days to complete the task
 
     status: {
       type: String,

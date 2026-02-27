@@ -11,4 +11,35 @@ async function createTask(newTask) {
 }
 
 
-module.exports = { createTask }
+async function getTasks() {
+    try {
+        const allTasks = await Task.find().populate("project").populate("team").populate("owners")
+        return allTasks
+    } catch (error) {
+        throw error
+    }
+}
+
+
+async function updateTaskById(taskId, dataToUpdate) {
+  try {
+    const task = await Task.findByIdAndUpdate(taskId, dataToUpdate, {
+      new: true,
+      runValidators: true,
+    });
+    return task;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function deleteTask(taskId) {
+  try {
+    const deletedTask = await Task.findByIdAndDelete(taskId);
+    return deletedTask;
+  } catch (error) {
+    throw error
+  }
+}
+
+module.exports = { createTask , getTasks, updateTaskById, deleteTask }
