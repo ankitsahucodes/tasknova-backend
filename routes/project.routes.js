@@ -52,7 +52,9 @@ router.delete("/:projectId", verifyJWT, async (req, res) => {
         message: "Project deleted successfully.",
         project: deletedProject,
       });
-  } catch (error) {}
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
 });
 
 module.exports = router;
