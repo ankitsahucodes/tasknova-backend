@@ -1,4 +1,5 @@
 const Project = require("../models/project.model");
+const Task = require("../models/task.model");
 
 // Create
 async function createProject(newProject) {
@@ -24,6 +25,11 @@ async function getAllProjects() {
 async function deleteProject(projectId) {
   try {
     const deletedProject = await Project.findByIdAndDelete(projectId);
+
+     if (deletedProject) {
+      await Task.deleteMany({ project: projectId });
+    }
+    
     return deletedProject;
   } catch (error) {
     throw error;
