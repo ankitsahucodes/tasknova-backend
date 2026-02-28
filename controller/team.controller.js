@@ -14,7 +14,7 @@ async function createNewTeam(newTeam) {
 // Read
 async function getAllTeams() {
   try {
-    const allTeams = await Team.find().populate("members")
+    const allTeams = await Team.find().populate("members");
     return allTeams;
   } catch (error) {
     throw error;
@@ -28,9 +28,8 @@ async function deleteTeam(teamId) {
     const deletedTeam = await Team.findByIdAndDelete(teamId);
     return deletedTeam;
   } catch (error) {
-    throw error
+    throw error;
   }
 }
-
 
 module.exports = { createNewTeam, getAllTeams, deleteTeam };

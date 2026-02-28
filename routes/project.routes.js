@@ -48,9 +48,11 @@ router.delete("/:projectId", verifyJWT, async (req, res) => {
 
     return res
       .status(200)
-      .json({ message: "Project deleted successfully.", project: deletedProject });
+      .json({
+        message: "Project deleted successfully.",
+        project: deletedProject,
+      });
   } catch (error) {}
 });
-
 
 module.exports = router;

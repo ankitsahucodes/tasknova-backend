@@ -15,9 +15,10 @@ const verifyJWT = (req, res, next) => {
     req.user = decodedToken;
     next();
   } catch (error) {
-    return res.status(401).json({ message: "Unauthorized, JWT token wrong or expired." });
+    return res
+      .status(401)
+      .json({ message: "Unauthorized, JWT token wrong or expired." });
   }
 };
 
-
-module.exports = { verifyJWT }
+module.exports = { verifyJWT };
