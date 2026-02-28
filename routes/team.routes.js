@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-const { createNewTeam, getAllTeams, deleteTeam } = require("../controller/team.controller");
+const {
+  createNewTeam,
+  getAllTeams,
+  deleteTeam,
+} = require("../controller/team.controller");
 const { verifyJWT } = require("../middlewares/auth");
 
 const Team = require("../models/team.model");
@@ -33,7 +37,6 @@ router.get("/", verifyJWT, async (req, res) => {
   }
 });
 
-
 router.put("/:teamId", verifyJWT, async (req, res) => {
   try {
     const { teamId } = req.params;
@@ -57,7 +60,6 @@ router.put("/:teamId", verifyJWT, async (req, res) => {
     res.status(500).json({ error: "Failed to add member" });
   }
 });
-
 
 //delete
 

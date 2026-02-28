@@ -21,13 +21,12 @@ async function getAllProjects() {
   }
 }
 
-
 async function deleteProject(projectId) {
   try {
     const deletedProject = await Project.findByIdAndDelete(projectId);
     return deletedProject;
   } catch (error) {
-    throw error
+    throw error;
   }
 }
 

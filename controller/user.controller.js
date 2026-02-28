@@ -1,14 +1,14 @@
-const UserDB = require("../models/user.model")
+const UserDB = require("../models/user.model");
 
 async function getAllUsers() {
   try {
-     const allUsers = await UserDB.find();
-     return allUsers
+    const allUsers = await UserDB.find();
+    return allUsers;
   } catch (error) {
-    throw error
+    throw error;
   }
 }
 
 module.exports = {
-    getAllUsers
-}
+  getAllUsers,
+};

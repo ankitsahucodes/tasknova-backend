@@ -31,10 +31,12 @@ const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
 
 // User Routes
-const userRoutes = require("./routes/user.routes")
-app.use("/users", userRoutes)
+const userRoutes = require("./routes/user.routes");
+app.use("/users", userRoutes);
 
-
+// Report Routes
+const reportRoutes = require("./routes/report.routes");
+app.use("/report", reportRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
